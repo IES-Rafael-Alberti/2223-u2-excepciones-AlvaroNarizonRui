@@ -1,12 +1,15 @@
 from src.ejercicio5 import comprobarContraseña
 import pytest
 
-def testcontraseña():
-    assert comprobarContraseña("trollface123","trollface123") == "trollface123"
+def test_contraseña_correcta():
+    contraseña = "trollface123"
+    entrada = "trollface123"
+    assert comprobarContraseña(contraseña,entrada) == entrada
 
-def testcontraseñaexcepcion():
+def test_contraseña_incorrecta():
+    contraseña = "trollface123"
+    entrada = "contraseñaincorrecta"
     with pytest.raises(NameError):
-        comprobarContraseña("trollface123","troll")
-
+        comprobarContraseña(contraseña,entrada)
 if __name__ == "__main__":
     pytest.main()
